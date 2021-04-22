@@ -1,5 +1,9 @@
 \documentclass{article}
 \usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{chngcntr}
+\usepackage[labelfont=bf,textfont=md]{caption}
+\counterwithin{figure}{section}
 
 \title{CS-521 Term Project: Packet vs. Circuit Switching}
 \author{Lucas Ferreira, Vishal Rao, Justin Ho}
@@ -20,13 +24,58 @@
 
   \subsection{Methodology}
 
+  To compare and contrast the performance of packet switching and circuit switching, two event-based simulation models
+  written in Python were created to simulate a packet switching network and a circuit switching network. The intent of
+  creating these models was to provide numerical insight into how the time data packets spend traveling through a network
+  is affected by the effects of packet switching and circuit switching. By generating statistics such as average data packet
+  queue delay and average data packet total delay for a network simulation, a strong basis for comparing the two types of
+  networks was formulated.\\\\
+  For both simulations, a simple bi-directional network graph consisting of six nodes was used, as shown in Figure 2.1, where fixed-size data packets
+  are randomly generated at node 0, and sent through the network where their destination is always node 5. The models
+  created allow for the mean arrival rate of each new data packet, the total simulation duration, and the transmission time
+  between nodes to be manually set. For example, a circuit switching simulation could be run with a new packet mean arrival time of 500 milliseconds, a
+  total simulation duration of two hours, and a transmission time between nodes of 80 milliseconds. Note that the transmission delay
+  at the network nodes is disregarded. At the end of each simulation, the results, which include average queue delay and total delay statistics, are printed to the console.
+
+  \begin{figure}[h]
+  \centering
+          \includegraphics[totalheight=6cm]{images/network_graph.png}
+  \renewcommand\figurename{Figure}
+      \caption{Network graph used in simulation model}
+      \label{fig:networkgraph}
+  \end{figure}
+
+  The circuit switching model simulates the way circuit switching networks are implemented by dedicating an entire channel
+  through the network from source to destination when a data packet is ready to be transmitted. Whenever new data packets are generated and cannot be transmitted
+  because the there are no available channels, they enter a queue where they remain until new channels become available. This
+  process is illustrated in Figure 2.2. The packet switching model has a different mechanism for handling channels when data packets
+  are being transmitted through the network. Rather than securing the entire channel from a data packet's destination node to its
+  source node, the packet switching model only secures individual channels between two different nodes as a data packet moves throughout its
+  assigned path. For example, if a data packet being transmitted from node 0 to node 5, which has been assigned the path 0-1-2-5, is
+  traveling thorugh the 1-2 channel, only the 1-2 channel is secured, and thus blocked. Whenever a data packet arrives at a new node,
+  it checks if the next channel it needs to use is available. If it isn't, it searches for a new channel which can lead the data packet
+  to its destination. If no other channels are available, the data packet is inserted into a queue belonging to the last node it
+  visited. As new channels become available, the data packet is popped from the queue and resumes its trip to its destination. The
+  packet switching process is illustrated in Figure 2.3.
+
+    \begin{figure}[h]
+  \centering
+          \includegraphics[totalheight=5.5cm]{images/graph_cs.png}
+  \renewcommand\figurename{Figure}
+      \caption{Circuit switching model}
+      \label{fig:graph_cs}
+  \end{figure}
+
+      \begin{figure}[h]
+  \centering
+          \includegraphics[totalheight=8cm]{images/graph_ps.png}
+  \renewcommand\figurename{Figure}
+      \caption{Packet switching model}
+      \label{fig:graph_ps}
+  \end{figure}
   
 
   \subsection{Graphs and Tables}
-
-
-
-  \section{Code and Output}
 
 
 
