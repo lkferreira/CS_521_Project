@@ -49,7 +49,6 @@ class CircuitSwitchingSim:
                                                                             'event_start_time': new_data_arrival_time,
                                                                             'event_time': new_data_arrival_time,
                                                                             'path': None,
-                                                                            'curr_trip': None,
                                                                             'event_id': self.id_counter,
                                                                             'queue_delay': 0,
                                                                             'total_delay': 0}))
@@ -128,7 +127,6 @@ class CircuitSwitchingSim:
                                                     'event_start_time': 0,
                                                     'event_time': 0,
                                                     'path': None,
-                                                    'curr_trip': None,
                                                     'event_id': self.id_counter,
                                                     'queue_delay': 0,
                                                     'total_delay': 0}))
@@ -143,7 +141,6 @@ class CircuitSwitchingSim:
                 self.process_data_arrival(event)
 
             elif event['event_type'] == 'transmission_end':
-                # print(event['path'])
                 self.process_transmission_end(event)
 
         print('Simulation finished!\n')
