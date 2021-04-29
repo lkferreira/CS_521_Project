@@ -18,6 +18,18 @@
 
   \section{Introduction}
 
+  Packet-switched networks break streams of data into small blocks known as packets. Each of these packets are then sent
+  independently over a shared network, based on the destination address in each packet. After receiving, packets are reassembled
+  in the proper sequence to make up the message. Data is processed at all intermediate node including source system. The
+  delay between data units is not uniform. It is suitable for handling bilateral traffic. And, multiple users can use the
+  same channel while transferring their packets. If one route is failed the data can be routed from other paths too.\\\\
+  Circuit-switched networks require dedicated point-to-point connections. The resources needed are reserved for the duration
+  of the communication between the end systems. It was designed specifically for voice communication and packet switched
+  networks handled data. Data is processed only at source system. And, the delay between data units is uniform. Circuit
+  switching is not convenient for handling bilateral traffic. It is preferred when the communication is long and continuous.\\\\
+  To compare the performance of packet-switched and circuit-switched networks, we created an event-based simulation model
+  for either network. A series of experiments were designed to test how either network reacts to packets being sent across
+  them, and whether one has an overall better performance than the other.
 
 
   \section{Analysis}
