@@ -1,8 +1,8 @@
 import packet_switching as ps
 import circuit_switching as cs
 
-MEAN_ARRIVAL_TIME = [10, 25, 50, 75, 100]
-TRANSMISSION_TIME = [10, 25, 50, 75, 100]
+MEAN_ARRIVAL_TIME = [30, 45, 80]
+TRANSMISSION_TIME = [20, 35, 50]
 
 if __name__ == '__main__':
     for trans in TRANSMISSION_TIME:

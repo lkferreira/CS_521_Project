@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{graphicx}
-\usepackage{chngcntr}
+\usepackage{graphicx, chngcntr, multirow, float}
 \usepackage[labelfont=bf,textfont=md]{caption}
 \counterwithin{figure}{section}
 
@@ -22,11 +21,13 @@
   independently over a shared network, based on the destination address in each packet. After receiving, packets are reassembled
   in the proper sequence to make up the message. Data is processed at all intermediate node including source system. The
   delay between data units is not uniform. It is suitable for handling bilateral traffic. And, multiple users can use the
-  same channel while transferring their packets. If one route is failed the data can be routed from other paths too.\\\\
+  same channel while transferring their packets. If one route is failed the data can be routed from other paths too.
+
   Circuit-switched networks require dedicated point-to-point connections. The resources needed are reserved for the duration
   of the communication between the end systems. It was designed specifically for voice communication and packet switched
   networks handled data. Data is processed only at source system. And, the delay between data units is uniform. Circuit
-  switching is not convenient for handling bilateral traffic. It is preferred when the communication is long and continuous.\\\\
+  switching is not convenient for handling bilateral traffic. It is preferred when the communication is long and continuous.
+
   To compare the performance of packet-switched and circuit-switched networks, we created an event-based simulation model
   for either network. A series of experiments were designed to test how either network reacts to packets being sent across
   them, and whether one has an overall better performance than the other.
@@ -41,7 +42,8 @@
   creating these models was to provide numerical insight into how the time data packets spend traveling through a network
   is affected by the effects of packet switching and circuit switching. By generating statistics such as average data packet
   queue delay and average data packet total delay for a network simulation, a strong basis for comparing the two types of
-  networks was formulated.\\\\
+  networks was formulated.
+
   For both simulations, a simple bi-directional network graph consisting of six nodes was used, as shown in Figure 2.1, where fixed-size data packets
   are randomly generated at node 0, and sent through the network where their destination is always node 5. The models
   created allow for the mean arrival rate of each new data packet, the total simulation duration, and the transmission time
@@ -64,52 +66,95 @@
   are being transmitted through the network. Rather than securing the entire channel from a data packet's destination node to its
   source node, the packet switching model only secures individual channels between two different nodes as a data packet moves throughout its
   assigned path. For example, if a data packet being transmitted from node 0 to node 5, which has been assigned the path 0-1-2-5, is
-  traveling thorugh the 1-2 channel, only the 1-2 channel is secured, and thus blocked. Whenever a data packet arrives at a new node,
+  traveling through the 1-2 channel, only the 1-2 channel is secured, and thus blocked. Whenever a data packet arrives at a new node,
   it checks if the next channel it needs to use is available. If it isn't, it searches for a new channel which can lead the data packet
   to its destination. If no other channels are available, the data packet is inserted into a queue belonging to the last node it
   visited. As new channels become available, the data packet is popped from the queue and resumes its trip to its destination. The
   packet switching process is illustrated in Figure 2.3.
 
-    \begin{figure}[h]
-  \centering
-          \includegraphics[totalheight=5.5cm]{images/graph_cs.png}
-  \renewcommand\figurename{Figure}
-      \caption{Circuit switching model}
-      \label{fig:graph_cs}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[totalheight=5.5cm]{images/graph_cs.png}
+    \renewcommand\figurename{Figure}
+    \caption{Circuit switching model}
+    \label{fig:graph_cs}
   \end{figure}
 
-      \begin{figure}[h]
-  \centering
-          \includegraphics[totalheight=8cm]{images/graph_ps.png}
-  \renewcommand\figurename{Figure}
-      \caption{Packet switching model}
-      \label{fig:graph_ps}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[totalheight=8cm]{images/graph_ps.png}
+    \renewcommand\figurename{Figure}
+    \caption{Packet switching model}
+    \label{fig:graph_ps}
   \end{figure}
   
-
   \subsection{Graphs and Tables}
 
+  All time measurements are in milliseconds.
+
   \begin{table}[h]
-    \caption{Circuit Switching Simulation Results (Transmission Time: 80 ms)}
+    \caption{Circuit Switching Simulation Results}
     \centering
     {\footnotesize
-      \begin{tabular}{|c|c|c|c|c|}
+      \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-          Mean Arrival Time (ms) & Packets Arrived & Packets Completed & Mean Total Delay (ms)
-          & Mean Queue Delay (ms)\\
+        Transmit Time & Avg. Arrival Time & Packets Arrived & Packets Completed & Avg. Total Delay
+        & Avg. Queue Delay\\  
+        \hline
+
+        \multirow{3}{*}{20} & 30 & 120,024 & 120.019 & 45.85 & 1.03\\
+        \cline{2-6}
+        & 45 & 79,832 & 79,829 & 42.93 & 0.21\\
+        \cline{2-6}
+        & 80 & 44,716 & 44,714 & 41.01 & 0.03\\
+        \hline
+
+        \multirow{3}{*}{35} & 30 & 120,062 & 120,054 & 147.34 & 63.57\\
+        \cline{2-6}
+        & 45 & 79,866 & 79,863 & 83.65 & 3.6\\
+        \cline{2-6}
+        & 80 & 44,890 & 44,889 & 74.98 & 0.38\\
+        \hline
+
+        \multirow{3}{*}{50} & 30 & 119,959 & 89,998 & 449,907.31 & 449,787.31\\
+        \cline{2-6}
+        & 45 & 79,706 & 79,703 & 163.81 & 44.64\\
+        \cline{2-6}
+        & 80 & 44,847 & 44,845 & 113.02 & 2.0\\
         \hline
       \end{tabular}
     }
   \end{table}
 
   \begin{table}[h]
-    \caption{Packet Switching Simulation Results (Transmission Time: 80 ms)}
+    \caption{Packet Switching Simulation Results}
     \centering
     {\footnotesize
-      \begin{tabular}{|c|c|c|c|c|}
+      \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-          Mean Arrival Time (ms) & Packets Arrived & Packets Completed & Mean Total Delay (ms)
-          & Mean Queue Delay (ms)\\
+        Transmit Time & Mean Arrival Time & Packets Arrived & Packets Completed & Mean Total Delay
+        & Mean Queue Delay\\
+        \hline
+
+        \multirow{3}{*}{20} & 30 & 119,940 & 119,937 & 41.65 & 0.11\\
+        \cline{2-6}
+        & 45 & 79,805 & 79,803 & 40.64 & 0.02\\
+        \cline{2-6}
+        & 80 & 44,998 & 44,996 & 40.19 & 0.01\\
+        \hline
+
+        \multirow{3}{*}{35} & 30 & 120,002 & 119,997 & 82.85 & 1.36\\
+        \cline{2-6}
+        & 45 & 80,007 & 80,004 & 74.27 & 0.33\\
+        \cline{2-6}
+        & 80 & 45,040 & 45,038 & 71.07 & 0.04\\
+        \hline
+
+        \multirow{3}{*}{50} & 30 & 119,837 & 199,832 & 138.38 & 4.77\\
+        \cline{2-6}
+        & 45 & 80,055 & 80,052 & 116.39 & 1.74\\
+        \cline{2-6}
+        & 80 & 45,134 & 45,130 & 103.7 & 0.23\\
         \hline
       \end{tabular}
     }
