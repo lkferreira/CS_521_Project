@@ -1,7 +1,10 @@
 \documentclass{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{graphicx, chngcntr, multirow, float}
+\usepackage{graphicx, chngcntr, multirow, float, subcaption, pgfplots}
 \usepackage[labelfont=bf,textfont=md]{caption}
+
+\pgfplotsset{width=.99\textwidth,compat=1.9}
+
 \counterwithin{figure}{section}
 
 \title{CS-521 Term Project: Packet vs. Circuit Switching}
@@ -92,7 +95,7 @@
 
   All time measurements are in milliseconds.
 
-  \begin{table}[h]
+  \begin{table}[h!]
     \caption{Circuit Switching Simulation Results}
     \centering
     {\footnotesize
@@ -102,63 +105,349 @@
         & Avg. Queue Delay\\  
         \hline
 
-        \multirow{3}{*}{20} & 30 & 120,024 & 120.019 & 45.85 & 1.03\\
+        \multirow{5}{*}{20} & 42 & 85,825 & 85,821 & 43.36 & 0.3\\
         \cline{2-6}
-        & 45 & 79,832 & 79,829 & 42.93 & 0.21\\
+        & 54 & 66,553 & 66,551 & 42.17 & 0.12\\
         \cline{2-6}
-        & 80 & 44,716 & 44,714 & 41.01 & 0.03\\
+        & 66 & 54,428 & 54,426 & 41.48 & 0.06\\
+        \cline{2-6}
+        & 78 & 46,126 & 46,125 & 41.09 & 0.03\\
+        \cline{2-6}
+        & 90 & 39,815 & 39,814 & 40.8 & 0.02\\
         \hline
 
-        \multirow{3}{*}{35} & 30 & 120,062 & 120,054 & 147.34 & 63.57\\
+        \multirow{5}{*}{30} & 42 & 85,668 & 85,666 & 70.03 & 2.14\\
         \cline{2-6}
-        & 45 & 79,866 & 79,863 & 83.65 & 3.6\\
+        & 54 & 67,008 & 67,006 & 66.56 & 0.77\\
         \cline{2-6}
-        & 80 & 44,890 & 44,889 & 74.98 & 0.38\\
+        & 66 & 54,354 & 54,352 & 64.55 & 0.33\\
+        \cline{2-6}
+        & 78 & 46,304 & 46,303 & 63.51 & 0.2\\
+        \cline{2-6}
+        & 90 & 40,209 & 40,207 & 62.68 & 0.11\\
         \hline
 
-        \multirow{3}{*}{50} & 30 & 119,959 & 89,998 & 449,907.31 & 449,787.31\\
+        \multirow{5}{*}{40} & 42 & 85,680 & 85,678 & 105.92 & 12.0\\
         \cline{2-6}
-        & 45 & 79,706 & 79,703 & 163.81 & 44.64\\
+        & 54 & 66,557 & 66,553 & 94.26 & 3.31\\
         \cline{2-6}
-        & 80 & 44,847 & 44,845 & 113.02 & 2.0\\
+        & 66 & 54,436 & 54,435 & 89.94 & 1.51\\
+        \cline{2-6}
+        & 78 & 46,193 & 46,191 & 87.49 & 0.71\\
+        \cline{2-6}
+        & 90 & 40,027 & 40,026 & 85.85 & 0.42\\
+        \hline
+
+        \multirow{5}{*}{50} & 42 & 85,511 & 85,509 & 232.07 & 112.28\\
+        \cline{2-6}
+        & 54 & 66,922 & 66,919 & 130.07 & 13.05\\
+        \cline{2-6}
+        & 66 & 54,719 & 54,715 & 118.76 & 4.78\\
+        \cline{2-6}
+        & 78 & 46,151 & 46,149 & 113.65 & 2.21\\
+        \cline{2-6}
+        & 90 & 39,984 & 39,983 & 110.78 & 1.27\\
         \hline
       \end{tabular}
     }
   \end{table}
 
-  \begin{table}[h]
+  \begin{table}[h!]
     \caption{Packet Switching Simulation Results}
     \centering
     {\footnotesize
       \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        Transmit Time & Mean Arrival Time & Packets Arrived & Packets Completed & Mean Total Delay
-        & Mean Queue Delay\\
+        Transmit Time & Avg. Arrival Time & Packets Arrived & Packets Completed & Avg. Total Delay
+        & Avg. Queue Delay\\
         \hline
 
-        \multirow{3}{*}{20} & 30 & 119,940 & 119,937 & 41.65 & 0.11\\
+        \multirow{5}{*}{20} & 42 & 85,627 & 85,625 & 40.72 & 0.03\\
         \cline{2-6}
-        & 45 & 79,805 & 79,803 & 40.64 & 0.02\\
+        & 54 & 66,748 & 66,746 & 40.42 & 0.01\\
         \cline{2-6}
-        & 80 & 44,998 & 44,996 & 40.19 & 0.01\\
+        & 66 & 54,707 & 54,705 & 40.28 & 0.01\\
+        \cline{2-6}
+        & 78 & 46,332 & 46,331 & 40.18 & 0.01\\
+        \cline{2-6}
+        & 90 & 39,849 & 39,848 & 40.15 & 0.01\\
         \hline
 
-        \multirow{3}{*}{35} & 30 & 120,002 & 119,997 & 82.85 & 1.36\\
+        \multirow{5}{*}{30} & 42 & 85,741 & 85,739 & 62.96 & 0.21\\
         \cline{2-6}
-        & 45 & 80,007 & 80,004 & 74.27 & 0.33\\
+        & 54 & 66,621 & 66,619 & 61.6 & 0.09\\
         \cline{2-6}
-        & 80 & 45,040 & 45,038 & 71.07 & 0.04\\
+        & 66 & 54,514 & 54,513 & 61.01 & 0.04\\
+        \cline{2-6}
+        & 78 & 46,247 & 46,245 & 60.71 & 0.02\\
+        \cline{2-6}
+        & 90 & 39,977 & 39,975 & 60.49 & 0.01\\
         \hline
 
-        \multirow{3}{*}{50} & 30 & 119,837 & 199,832 & 138.38 & 4.77\\
+        \multirow{5}{*}{40} & 42 & 85,516 & 85,512 & 88.75 & 0.82\\
         \cline{2-6}
-        & 45 & 80,055 & 80,052 & 116.39 & 1.74\\
+        & 54 & 66,675 & 66,673 & 84.29 & 0.33\\
         \cline{2-6}
-        & 80 & 45,134 & 45,130 & 103.7 & 0.23\\
+        & 66 & 54,294 & 54,291 & 82.57 & 0.14\\
+        \cline{2-6}
+        & 78 & 46,128 & 46,126 & 81.75 & 0.08\\
+        \cline{2-6}
+        & 90 & 39,969 & 39,966 & 81.23 & 0.04\\
+        \hline
+
+        \multirow{5}{*}{50} & 42 & 85,858 & 85,855 & 119.24 & 2.05\\
+        \cline{2-6}
+        & 54 & 66,559 & 66,555 & 110.16 & 0.95\\
+        \cline{2-6}
+        & 66 & 54,308 & 54,306 & 105.6 & 0.42\\
+        \cline{2-6}
+        & 78 & 46,172 & 46,170 & 103.77 & 0.23\\
+        \cline{2-6}
+        & 90 & 40,030 & 40,029 & 102.65 & 0.12\\
         \hline
       \end{tabular}
     }
   \end{table}
+
+  \begin{figure}[h!]
+    \caption{Circuit Switching vs. Packet Switching -- Avg. Arrival Time}
+    \centering
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Avg. Arrival Time},
+          ylabel={Avg. Total Delay},
+          xmin=37, xmax=93,
+          ymin=20, ymax=250,
+          ymajorgrids=true,
+          legend pos=north east
+        ]
+          \addlegendimage{empty legend}
+          \addlegendentry{\hspace{-.6cm}\textbf{Transmit Time}}
+          
+          \addplot[
+            color=blue,
+            mark=square,
+          ]
+          coordinates {
+            (42,43.36) (54,42.16) (66,41.48) (78,41.09) (90,40.8)
+          };
+          \addlegendentry{20 ms}
+
+          \addplot[
+            color=red,
+            mark=square,
+          ]
+          coordinates {
+            (42,70.03) (54,66.56) (66,64.55) (78,63.51) (90,62.68)
+          };
+          \addlegendentry{30 ms}
+
+          \addplot[
+            color=green,
+            mark=square,
+          ]
+          coordinates {
+            (42,105.92) (54,94.26) (66,89.94) (78,87.49) (90,85.85)
+          };
+          \addlegendentry{40 ms}
+
+          \addplot[
+            color=orange,
+            mark=square,
+          ]
+          coordinates {
+            (42,232.07) (54,130.07) (66,118.76) (78,113.65) (90,110.78)
+          };
+          \addlegendentry{50 ms}
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Circuit Switching}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Avg. Arrival Time},
+          ylabel={Avg. Total Delay},
+          xmin=37, xmax=93,
+          ymin=20, ymax=250,
+          ymajorgrids=true,
+          legend pos=north east
+        ]
+          \addlegendimage{empty legend}
+          \addlegendentry{\hspace{-.6cm}\textbf{Transmit Time}}
+          
+          \addplot[
+            color=blue,
+            mark=square,
+          ]
+          coordinates {
+            (42,40.72) (54,40.42) (66,40.28) (78,40.18) (90,40.15)
+          };
+          \addlegendentry{20 ms}
+
+          \addplot[
+            color=red,
+            mark=square,
+          ]
+          coordinates {
+            (42,62.96) (54,61.6) (66,61.01) (78,60.71) (90,60.49)
+          };
+          \addlegendentry{30 ms}
+
+          \addplot[
+            color=green,
+            mark=square,
+          ]
+          coordinates {
+            (42,88.75) (54,84.29) (66,82.57) (78,81.75) (90,81.23)
+          };
+          \addlegendentry{40 ms}
+
+          \addplot[
+            color=orange,
+            mark=square,
+          ]
+          coordinates {
+            (42,119.24) (54,110.16) (66,105.6) (78,103.77) (90,102.65)
+          };
+          \addlegendentry{50 ms}
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Packet Switching}
+    \end{subfigure}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \caption{Circuit Switching vs. Packet Switching -- Transmission Time}
+    \centering
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Transmission Time},
+          ylabel={Avg. Total Delay},
+          xmin=17, xmax=53,
+          ymin=20, ymax=250,
+          ymajorgrids=true,
+          legend pos=north west
+        ]
+          \addlegendimage{empty legend}
+          \addlegendentry{\hspace{-.6cm}\textbf{Arrival Time}}
+          
+          \addplot[
+            color=blue,
+            mark=square,
+          ]
+          coordinates {
+            (20,43.36) (30,70.03) (40,105.92) (50,232.07)
+          };
+          \addlegendentry{42 ms}
+
+          \addplot[
+            color=red,
+            mark=square,
+          ]
+          coordinates {
+            (20,42.17) (30,66.56) (40,94.26) (50,130.07)
+          };
+          \addlegendentry{54 ms}
+
+          \addplot[
+            color=green,
+            mark=square,
+          ]
+          coordinates {
+            (20,41.48) (30,64.55) (40,89.94) (50,118.76)
+          };
+          \addlegendentry{66 ms}
+
+          \addplot[
+            color=orange,
+            mark=square,
+          ]
+          coordinates {
+            (20,41.09) (30,63.51) (40,87.49) (50,113.65)
+          };
+          \addlegendentry{78 ms}
+
+          \addplot[
+            color=black,
+            mark=square,
+          ]
+          coordinates {
+            (20,40.8) (30,62.68) (40,85.85) (50,110.78)
+          };
+          \addlegendentry{90 ms}
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Circuit Switching}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Transmission Time},
+          ylabel={Avg. Total Delay},
+          xmin=17, xmax=53,
+          ymin=20, ymax=250,
+          ymajorgrids=true,
+          legend pos=north west
+        ]
+          \addlegendimage{empty legend}
+          \addlegendentry{\hspace{-.6cm}\textbf{Arrival Time}}
+          
+          \addplot[
+            color=blue,
+            mark=square,
+          ]
+          coordinates {
+            (20,40.72) (30,62.96) (40,88.75) (50,119.24)
+          };
+          \addlegendentry{42 ms}
+
+          \addplot[
+            color=red,
+            mark=square,
+          ]
+          coordinates {
+            (20,40.42) (30,61.6) (40,84.29) (50,110.16)
+          };
+          \addlegendentry{54 ms}
+
+          \addplot[
+            color=green,
+            mark=square,
+          ]
+          coordinates {
+            (20,40.28) (30,61.01) (40,82.57) (50,105.6)
+          };
+          \addlegendentry{66 ms}
+
+          \addplot[
+            color=orange,
+            mark=square,
+          ]
+          coordinates {
+            (20,40.18) (30,60.71) (40,81.75) (50,103.77)
+          };
+          \addlegendentry{78 ms}
+
+          \addplot[
+            color=black,
+            mark=square,
+          ]
+          coordinates {
+            (20,40.15) (30,60.49) (40,81.23) (50,102.65)
+          };
+          \addlegendentry{90 ms}
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Packet Switching}
+    \end{subfigure}
+  \end{figure}
 
   \section{Observations and Recommendations}
 
