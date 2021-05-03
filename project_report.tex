@@ -449,9 +449,42 @@
     \end{subfigure}
   \end{figure}
 
+  \section{Code and Output}
+
+  Source code and code output have been attached to this report: see \verb|out.txt| for output
+  generated for Tables 1 and 2 and Figures 2.4 and 2.5; see \verb|out-40ms-MAT.txt| for output
+  generated with a 40 ms mean arrival time; see the Python files for source code for the
+  simulations.
+
   \section{Observations and Recommendations}
 
+  We contrast the efficacies of both switching methods in Figures 2.4 and 2.5. In the figures, we
+  observe how each method scales in different configurations of transmission time and average
+  arrival time. In Figure 2.4, we set the average total delay as a function of the average packet
+  arrival time, with each line representing a fixed transmission time, from 20 ms to 50 ms with 10 ms jumps. Comparing the performance of circuit and packet switching, there is a clear efficiency
+  disparity; while packet switching stays relatively constant with the arrival-transmission
+  time configurations, circuit switching shows extreme service degradation as transmission time
+  grows larger than the average arrival time, with the 42 ms-50 ms arrival-transmission
+  configuration having more than two times the average total delay than the 42-40 configuration
+  and almost two times the total delay than the 54-50 configuration. This observation is further
+  reinforced by the results from \verb|out-40ms-MAT.txt|: the 40-50 configuration has an average
+  total delay of over 4,000 ms, greater than the 42-50 configuration by a factor of nearly 20.
 
+  In Figure 2.5, we instead set the average total delay as a function of transmission time.
+  Similarly to Figure 2.4, we see that circuit switching shows great service degradation;
+  the 42-50 configuration follows an interpolated exponential curve, while every other
+  configuration follow interpolated linear curves.
+
+  From the observed results, it is clear that the arrival-transmission ratio tends to 0---in
+  other words, as the transmission time tends to a value greater than the average arrival time
+  ---performance tends to degrade using both methods. However, circuit switching demonstrates much
+  worse degradations, as having longer transmission times under the circuit switching model
+  specifically implies that the transmission channels the packets travel through must stay
+  dedicated to transmitting their respective packets for longer, resulting in exorbitantly large
+  packet queues, filled with packets actively waiting for when a route to their destinations
+  opens up. This problem is largely mitigated under the packet switching model as packets do not
+  need an entire route being open to be transmitted; instead, packets only need an (acyclic) open
+  router node towards their destinations.
 
   \section{Conclusion}
 \end{document}

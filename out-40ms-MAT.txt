@@ -1,0 +1,160 @@
+
+============================================================
+TRANSMISSION TIME: 20
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MEAN ARRIVAL TIME: 40
+New Packet Switching simulation running...
+
+Simulation finished!
+
+******************** SIMULATION RESULTS ********************
+
+Total simulation duration: 3600014.07 ms
+Total arrived: 89990
+Total completed: 89987
+Average total delay: 40.84 ms
+Average queue delay: 0.04 ms
+
+Queue lengths at simulation end:
+    Queue 0: 0
+    Queue 1: 0
+    Queue 2: 0
+    Queue 3: 0
+    Queue 4: 0
+    Queue 5: 0
+
+------------------------------------------------------------
+New Circuit Switching simulation running...
+
+Simulation finished!
+
+******************** SIMULATION RESULTS ********************
+
+Total simulation duration: 3600000.32 ms
+Total arrived: 90041
+Total completed: 90039
+Average total delay: 43.59 ms
+Average queue delay: 0.33 ms
+
+Queue length at simulation end: 0
+
+============================================================
+TRANSMISSION TIME: 30
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MEAN ARRIVAL TIME: 40
+New Packet Switching simulation running...
+
+Simulation finished!
+
+******************** SIMULATION RESULTS ********************
+
+Total simulation duration: 3600013.82 ms
+Total arrived: 89784
+Total completed: 89782
+Average total delay: 63.32 ms
+Average queue delay: 0.25 ms
+
+Queue lengths at simulation end:
+    Queue 0: 0
+    Queue 1: 0
+    Queue 2: 0
+    Queue 3: 0
+    Queue 4: 0
+    Queue 5: 0
+
+------------------------------------------------------------
+New Circuit Switching simulation running...
+
+Simulation finished!
+
+******************** SIMULATION RESULTS ********************
+
+Total simulation duration: 3600008.1 ms
+Total arrived: 90594
+Total completed: 90592
+Average total delay: 71.24 ms
+Average queue delay: 2.81 ms
+
+Queue length at simulation end: 0
+
+============================================================
+TRANSMISSION TIME: 40
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MEAN ARRIVAL TIME: 40
+New Packet Switching simulation running...
+
+Simulation finished!
+
+******************** SIMULATION RESULTS ********************
+
+Total simulation duration: 3600001.53 ms
+Total arrived: 89767
+Total completed: 89765
+Average total delay: 90.14 ms
+Average queue delay: 1.01 ms
+
+Queue lengths at simulation end:
+    Queue 0: 0
+    Queue 1: 0
+    Queue 2: 0
+    Queue 3: 0
+    Queue 4: 0
+    Queue 5: 0
+
+------------------------------------------------------------
+New Circuit Switching simulation running...
+
+Simulation finished!
+
+******************** SIMULATION RESULTS ********************
+
+Total simulation duration: 3600010.27 ms
+Total arrived: 89907
+Total completed: 89903
+Average total delay: 109.14 ms
+Average queue delay: 14.76 ms
+
+Queue length at simulation end: 0
+
+============================================================
+TRANSMISSION TIME: 50
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MEAN ARRIVAL TIME: 40
+New Packet Switching simulation running...
+
+Simulation finished!
+
+******************** SIMULATION RESULTS ********************
+
+Total simulation duration: 3600022.39 ms
+Total arrived: 89896
+Total completed: 89892
+Average total delay: 121.29 ms
+Average queue delay: 2.34 ms
+
+Queue lengths at simulation end:
+    Queue 0: 0
+    Queue 1: 0
+    Queue 2: 0
+    Queue 3: 0
+    Queue 4: 0
+    Queue 5: 0
+
+------------------------------------------------------------
+New Circuit Switching simulation running...
+
+Simulation finished!
+
+******************** SIMULATION RESULTS ********************
+
+Total simulation duration: 3600032.17 ms
+Total arrived: 89988
+Total completed: 89902
+Average total delay: 4557.37 ms
+Average queue delay: 4437.37 ms
+
+Queue length at simulation end: 82
