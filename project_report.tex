@@ -456,7 +456,7 @@
   generated with a 40 ms mean arrival time; see the Python files for source code for the
   simulations.
 
-  \section{Observations and Recommendations}
+  \section{Observations}
 
   We contrast the efficacies of both switching methods in Figures 2.4 and 2.5. In the figures, we
   observe how each method scales in different configurations of transmission time and average
@@ -482,9 +482,32 @@
   specifically implies that the transmission channels the packets travel through must stay
   dedicated to transmitting their respective packets for longer, resulting in exorbitantly large
   packet queues, filled with packets actively waiting for when a route to their destinations
-  opens up. This problem is largely mitigated under the packet switching model as packets do not
-  need an entire route being open to be transmitted; instead, packets only need an (acyclic) open
-  router node towards their destinations.
+  opens up, further evidenced by the exorbitant increase in average queue delay within the circuit
+  switching average queuing delay for the $x$-50 configurations seen in Figure 2.4. This problem is
+  largely mitigated under the packet switching model as packets do not need an entire route being
+  open to be transmitted; instead, packets only need an (acyclic) open router node towards their
+  destinations.
 
   \section{Conclusion}
+
+  From our network simulations, it is self-evident that packet switching is the superior switching
+  method over circuit switching; with a much more modular and granular design in that packets do
+  not have to reserve an entire route for itself and instead only need to move along routers as
+  they open, packet switching offers a much more optimized service over circuit switching. This
+  finding makes sense in the context of the general purpose for packet switching infrastructure:
+  since the packet switching infrastructure was built to handle a multi-user environment where
+  there are multiple end users communicating to a variety of entities simultaneously at any given
+  time, packet switching is the clear choice in dealing with and servicing general data
+  communications, like Internet traffic.
+
+  Circuit switching is not without its merit, however; while circuit switching does not hold up
+  well against the demands of data communications, its use in voice communications specifically
+  still makes sense, to an extent. Comparatively, data communications are much more complex than
+  voice communications and thus require a similarly more complex architecture to service it, but
+  since (stationary) voice communications are much more simple in that communications only require
+  one dedicated channel for some set amount of time, circuit switching makes sense not only to
+  reduce switching complexity, but to also keep a consistent service over the dedicated channel.
+  However, especially with the modern need of mobility among voice technologies, the utility of
+  circuit switching leaves much to be desired, leaving packet switching as the overall better
+  switching method across all metrics.
 \end{document}
